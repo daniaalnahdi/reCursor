@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+html {
+    margin: 0;
+    padding: 0;
+    background-color: #25273b;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+body {
+    font-family: 'Varela Round', sans-serif;
+    width: 205px;
+    color: white;
+    text-align: center;
+    letter-spacing: 2px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+h1 {
+    color: #d0cfde;
+    -webkit-transition: all .25s ease-in;
+}
+
+h1:hover {
+    color: #c5c4d2;
+    -webkit-transition: all .25s ease-in;
+}
+
+h4 {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #747097;
+    -webkit-transition: all .25s ease-in;
+}
+
+#head {
+    font-size: 10px;
+    text-align: top;
+    padding: 10px;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+#head img {
+    width: 50px;
+}
+
+.container {
+    padding: 5px;
+    margin: 5px;
+}
+
+button {
+    width: 65px;
+    font-size: 15px;
+    text-align: center;
+    background-color: #343055;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 0px 0px 0px grey;
+    transition: all .25s ease-out;
+    box-shadow: .1px .1px 1px #242424;
+}
+
+button:hover {
+    box-shadow: 2px 2px 2px #242424;
+    -webkit-transition: all .25s ease-in;
+    transform: scale(1.15);
+    filter: brightness(115%);
+    cursor: pointer;
+}
+
+button:hover~h4 {
+    -webkit-transition: all .25s ease-in;
+    transform: scale(1.05);
+    filter: brightness(120%);
+}
+
+button:focus {
+    outline: 0;
+}
+
+button img {
+    width: 30px;
+}
+
+#column {
+    column-count: 2;
+    vertical-align: bottom;
+    padding: 0;
+}
