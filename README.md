@@ -1,9 +1,9 @@
 # reCursor
-reCursor is a Google Chrome extension that allows you to customize your cursor with a theme of icons! There are five different themes that each contain their own set of icons. Every time you click anywhere on your webpage, the cursor will change too!
+reCursor is a fun Google Chrome extension that allows you to customize your cursor with a theme of icons! There are five different categories that each contain their own set of icons. Every time you click anywhere on your webpage, the cursor will change to a different icon from the set!
 
-## Extension Set-Up Instructions
+## Installation
 - Download this repository and save it in a new folder.
-- Download the Chrome Browser [here](https://www.google.com/chrome/?brand=CHBF&ds_kid=43700010220923525&utm_source=bing&utm_medium=cpc&utm_campaign=1005992%20%7C%20Chrome%20Win10%20%7C%20DR%20%7C%20ESS01%20%7C%20NA%20%7C%20US%20%7C%20en%20%7C%20Desk%20%7C%20BING%20SEM%20%7C%20BKWS%20~%20Top%20KWDS%20-%20Exact&utm_term=google%20chrome%20download&utm_content=Download%20Chrome%20-%20Exact&gclid=CISYyfGlseACFQ2SxQIdpHUMiA&gclsrc=ds)
+- Download the Chrome Browser [here](https://www.google.com/chrome/).
 - Navigate to chrome://extensions in your chrome browser.
 - Switch on Developer Mode in the top right corner.
 - Click on the button labeled "Load Unpacked" located in the top left section of this screen.
