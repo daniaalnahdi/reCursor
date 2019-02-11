@@ -3,7 +3,7 @@ reCursor is a fun Google Chrome extension that customizes your cursor to a theme
 
 ## Installation
 - Download this repository and save it in a new folder.
-- Download the Chrome Browser [here](https://www.google.com/chrome/).
+- Download the Google Chrome browser [here](https://www.google.com/chrome/).
 - Navigate to chrome://extensions in your chrome browser.
 - Switch on Developer Mode in the top right corner.
 - Click on the button labeled "Load Unpacked" located in the top left section of this screen.
