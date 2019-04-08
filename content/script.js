@@ -1,34 +1,34 @@
 /*Sets of lists of images
 */
-var politics = [
+const politics = [
     "https://i.ibb.co/S6xnr5n/poli-trump.png",
     "https://i.ibb.co/8ByyBy2/poli-putin.png",
     "https://i.ibb.co/DzZ0hNN/poli-obama.png",
     "https://i.ibb.co/99N4hyY/poli-kim.png",
 ];
 
-var flags = [
+const flags = [
     "https://i.ibb.co/9bpq8bj/flags-usa.png",
     "https://i.ibb.co/3RzYGKJ/flags-bhr.png",
     "https://i.ibb.co/Vw2qKgt/flags-pr.png",
     "https://i.ibb.co/VpsP1Fs/flags-china.png",
 ];
 
-var dogs = [
+const dogs = [
     "https://i.ibb.co/pynTy8K/dog-chichi.png",
     "https://i.ibb.co/6Xx1hLY/dog-husky.png",
     "https://i.ibb.co/T4rWzgL/dog-scruffy.png",
     "https://i.ibb.co/GVf947d/dog-bulldog.png",
 ];
 
-var cats = [
+const cats = [
     "https://i.ibb.co/1ZFy52Z/cat-moonie.png",
     "https://i.ibb.co/ZLj1Df5/cat-grumpy.png",
     "https://i.ibb.co/874q7tX/cat-tongue.png",
     "https://i.ibb.co/RT53mNF/cat-scared.png",
 ];
 
-var hb = [
+const hb = [
     "https://i.ibb.co/xM37Cvt/hb-bahar.png",
     "https://i.ibb.co/PYkKSK0/hb-noah.png",
     "https://i.ibb.co/BK1HbHT/hb-raquel.png",
@@ -39,16 +39,16 @@ var hb = [
 function runScript(pickTheme) {
 
 // The cursors picked
-var selectedSet = pickTheme;
+let selectedSet = pickTheme;
 
 //Number of cursors in set
-var cursorCount = pickTheme.length;
+let cursorCount = pickTheme.length;
 
 //Index of current displayed cursor
-var currCursor = 0;
+let currCursor = 0;
 
 //The url of the selected cursor
-var cursorURL = selectedSet[currCursor];
+let cursorURL = selectedSet[currCursor];
 
 //Determines whether user is clicking and dragging
 //var dragging = false;
@@ -59,6 +59,8 @@ document.body.style.cursor = "url('" + cursorURL + "'), auto";
 
 /*Switches to a new cursor from the set every time the user clicks or drags mouse*/
 document.addEventListener("click", () => {randCursor();});
+
+/*Unused -- changes the icon while dragging the mouse*/
 //document.addEventListener("mousedown", () => {
     //dragging = true;
     //if (dragging) {randCursor();}});
@@ -68,10 +70,10 @@ document.addEventListener("click", () => {randCursor();});
 
 
 /*Sets cursor to a random cursor from the set*/
-var randCursor = ()=> {
+const randCursor = ()=> {
 
     // Select a new random cursor index within range
-    var newNum = Math.floor(Math.random() * cursorCount);
+    let newNum = Math.floor(Math.random() * cursorCount);
 
     //If the random index is set to the same current cursor
     if (newNum == currCursor) {
@@ -93,45 +95,42 @@ var randCursor = ()=> {
 
 
 /*Sets the styling of the cursor to the given URL*/
-var setCursor = (url) => {
+const setCursor = (url) => {
     document.body.style.cursor = "url('" + url + "') 0 0, auto";}
 }
 
 
 /*Retrieves the selected cursor theme from the popup input*/
 chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
+  (request, sender, sendResponse)=> {
     console.log(sender.tab ?
                 "from a content script:" + sender.tab.url :
                 "from the extension");
 
 	switch (request) {
 		case 'pol':
-		var pickTheme = politics;
+		let pickTheme = politics;
 		runScript(pickTheme);
 		break;
 		case 'flags':
-		var pickTheme = flags;
+		let pickTheme = flags;
 		runScript(pickTheme);
 		break;
 		case 'dogs':
-		var pickTheme = dogs;
+		let pickTheme = dogs;
 		runScript(pickTheme);
 		break;
 		case 'cats':
-		var pickTheme = cats;
+		let pickTheme = cats;
 		runScript(pickTheme);
 		break;
         case 'hb':
-        var pickTheme = hb;
+        let pickTheme = hb;
         runScript(pickTheme);
         break;
 };
 
 		console.log(request);
-		var theme = request;
+		let theme = request;
 		console.log(theme);
-
-
-     // sendResponse({farewell: "goodbye"});
   });
