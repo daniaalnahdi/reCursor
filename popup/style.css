@@ -92,8 +92,7 @@ button img {
     width: 30px;
 }
 
-#column {
-    column-count: 2;
-    vertical-align: bottom;
-    padding: 0;
+#grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
