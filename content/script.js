@@ -36,101 +36,96 @@ const hb = [
 ];
 
 /*Sets the cursor depending on the selected theme.*/
-function runScript(pickTheme) {
+const runScript = (pickTheme) => {
 
-// The cursors picked
-let selectedSet = pickTheme;
+    // The cursors picked
+    let selectedSet = pickTheme;
 
-//Number of cursors in set
-let cursorCount = pickTheme.length;
+    //Number of cursors in set
+    let cursorCount = pickTheme.length;
 
-//Index of current displayed cursor
-let currCursor = 0;
+    //Index of current displayed cursor
+    let currCursor = 0;
 
-//The url of the selected cursor
-let cursorURL = selectedSet[currCursor];
+    //The url of the selected cursor
+    let cursorURL = selectedSet[currCursor];
 
-//Determines whether user is clicking and dragging
-//var dragging = false;
+    //Determines whether user is clicking and dragging
+    //var dragging = false;
 
-//Cursor initally set to first cursor
-document.body.style.cursor = "url('" + cursorURL + "'), auto";
+    //Cursor initally set to first cursor
+    document.body.style.cursor = "url('" + cursorURL + "'), auto";
 
 
-/*Switches to a new cursor from the set every time the user clicks or drags mouse*/
-document.addEventListener("click", () => {randCursor();});
+    /*Switches to a new cursor from the set every time the user clicks or drags mouse*/
+    document.addEventListener("click", () => { randCursor(); });
 
-/*Unused -- changes the icon while dragging the mouse*/
-//document.addEventListener("mousedown", () => {
+    /*Unused -- changes the icon while dragging the mouse*/
+    //document.addEventListener("mousedown", () => {
     //dragging = true;
     //if (dragging) {randCursor();}});
-//document.addEventListener("mousemove", () => {
+    //document.addEventListener("mousemove", () => {
     //if (dragging) {randCursor();}});
     //document.addEventListener("mouseup", () => {dragging = false});
 
 
-/*Sets cursor to a random cursor from the set*/
-const randCursor = ()=> {
+    /*Sets cursor to a random cursor from the set*/
+    const randCursor = () => {
 
-    // Select a new random cursor index within range
-    let newNum = Math.floor(Math.random() * cursorCount);
+        // Select a new random cursor index within range
+        let newNum = Math.floor(Math.random() * cursorCount);
 
-    //If the random index is set to the same current cursor
-    if (newNum == currCursor) {
-        if (newNum != (cursorCount - 1)) {
-            //set to last cursor in set
-            newNum = cursorCount - 1;
-        } else {
-            //if newNum is the last number, set to prev cursor
-            newNum = currCursor - 1;
+        //If the random index is set to the same current cursor
+        if (newNum == currCursor) {
+            if (newNum != (cursorCount - 1)) {
+                //set to last cursor in set
+                newNum = cursorCount - 1;
+            } else {
+                //if newNum is the last number, set to prev cursor
+                newNum = currCursor - 1;
+            }
         }
+
+        //Set to the new number
+        currCursor = newNum;
+        cursorURL = selectedSet[currCursor];
+
+        setCursor(cursorURL);
     }
 
-    //Set to the new number
-    currCursor = newNum;
-    cursorURL = selectedSet[currCursor];
 
-    setCursor(cursorURL);
-}
-
-
-/*Sets the styling of the cursor to the given URL*/
-const setCursor = (url) => {
-    document.body.style.cursor = "url('" + url + "') 0 0, auto";}
+    /*Sets the styling of the cursor to the given URL*/
+    const setCursor = (url) => {
+        document.body.style.cursor = "url('" + url + "') 0 0, auto";
+    }
 }
 
 
 /*Retrieves the selected cursor theme from the popup input*/
 chrome.runtime.onMessage.addListener(
-  (request, sender, sendResponse)=> {
-    console.log(sender.tab ?
-                "from a content script:" + sender.tab.url :
-                "from the extension");
+    (request, sender, sendResponse) => {
 
-	switch (request) {
-		case 'pol':
-		let pickTheme = politics;
-		runScript(pickTheme);
-		break;
-		case 'flags':
-		let pickTheme = flags;
-		runScript(pickTheme);
-		break;
-		case 'dogs':
-		let pickTheme = dogs;
-		runScript(pickTheme);
-		break;
-		case 'cats':
-		let pickTheme = cats;
-		runScript(pickTheme);
-		break;
-        case 'hb':
-        let pickTheme = hb;
+        let pickTheme;
+
+        switch (request) {
+            case 'pol':
+                pickTheme = politics;
+                break;
+            case 'flags':
+                pickTheme = flags;
+                break;
+            case 'dogs':
+                pickTheme = dogs;
+                break;
+            case 'cats':
+                pickTheme = cats;
+                break;
+            case 'hb':
+                pickTheme = hb;
+                break;
+        };
+
         runScript(pickTheme);
-        break;
-};
 
-		console.log(request);
-		let theme = request;
-		console.log(theme);
-  });
+        let theme = request;
+    });
