@@ -3,9 +3,7 @@ reCursor is a fun Google Chrome extension that customizes your cursor from a the
 
 <p align="center">
  <img width="400" src="demo/rc1.gif">
-</p>
 
-<p align="center">
  <img width="400" src="demo/rc2.gif">
 </p>
 
